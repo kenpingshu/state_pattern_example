@@ -1,0 +1,16 @@
+{
+    "name": "ken/state_pattern_example",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Ken Hsu",
+            "email": "knel.tw@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Kenpingshu\\StatePatternExample\\": "src/"
+        }
+    },
+    "require": {}
+}
