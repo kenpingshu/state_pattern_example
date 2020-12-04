@@ -27,17 +27,17 @@ class Conversation
             //do something
 
             //change state
-            $this->state = self::STATE_SEEN;
+            $this->transitionTo(self::STATE_SEEN);
         } elseif ($this->state == self::STATE_UNSEEN) {
             //do something
-
+            echo 'admin has seen';
             //change state
-            $this->state = self::STATE_SEEN;
+            $this->transitionTo(self::STATE_SEEN);
         } elseif ($this->state == self::STATE_REPLIED) {
             //do something
 
             //change state
-            $this->state = self::STATE_REPLIED;
+            $this->transitionTo(self::STATE_REPLIED);
         }
     }
 
@@ -47,17 +47,17 @@ class Conversation
             //do something
 
             //change state
-            $this->state = self::STATE_UNSEEN;
+            $this->transitionTo(self::STATE_UNSEEN);
         } elseif ($this->state == self::STATE_UNSEEN) {
             //do something
 
             //change state
-            $this->state = self::STATE_UNSEEN;
+            $this->transitionTo(self::STATE_UNSEEN);
         } elseif ($this->state == self::STATE_REPLIED) {
             //do something
 
             //change state
-            $this->state = self::STATE_UNSEEN;
+            $this->transitionTo(self::STATE_UNSEEN);
         }
     }
 
@@ -65,19 +65,25 @@ class Conversation
     {
         if ($this->state == self::STATE_SEEN) {
             //do something
-
+            echo 'user reply';
             //change state
-            $this->state = self::STATE_UNSEEN;
+            $this->transitionTo(self::STATE_REPLIED);
         } elseif ($this->state == self::STATE_UNSEEN) {
             //do something
 
             //change state
-            $this->state = self::STATE_UNSEEN;
+            $this->transitionTo(self::STATE_UNSEEN);
         } elseif ($this->state == self::STATE_REPLIED) {
             //do something
-
+            echo 'double reply';
             //change state
-            $this->state = self::STATE_REPLIED;
+            $this->transitionTo(self::STATE_REPLIED);
         }
     }
+
+    private function transitionTo($state)
+    {
+        $this->state = $state;
+    }
+
 }
